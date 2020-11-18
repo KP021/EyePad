@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="/keypad.css" />
+</head>
+<style>
+</style>
+<body>
+<script>
+function cL(elm) {
+    var inp = document.getElementById("inputArea");
+    inp.value += elm;
+}
+var calibStatus = -1;
+
+function cal() {
+    var button = document.getElementById("calButton");
+
+    if (calibStatus == 1) {
+        button.textContent = "Calibrate";
+    } else {
+        Restart();
+        button.textContent = "Stop Calibration";
+    }
+    calibStatus *= -1;
+}
+</script>
+<script src="/js/main.js"></script>
+<script src="/js/WebGazer.js" type="text/javascript"></script>
+<div>
+    <button onclick="cL(3)" class="block">3</button>
+    <button onclick="cL(2)" class="block">2</button>
+    <button onclick="cL(1)" class="block">1</button>
+    <button onclick="cL(6)" class="block">6</button>
+    <button onclick="cL(5)" class="block">5</button>
+    <button onclick="cL(4)" class="block">4</button>
+    <button onclick="cL(9)" class="block">9</button>
+    <button onclick="cL(8)" class="block">8</button>
+    <button onclick="cL(7)" class="block">7</button>
+</div>
+<input type="text" id="inputArea">
+<button type="button" id="calButton" onclick="cal()">Calibrate</button>
+</body>
+</html>

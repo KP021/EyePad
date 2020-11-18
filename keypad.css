@@ -1,0 +1,42 @@
+container {
+    width: 442px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.block {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background: #47353552;
+    float: right;
+}
+body {
+    background: gray
+}
+
+.block
+{
+    width: calc(33% - 10px);
+    margin: 5px;
+}
+.block:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+
+.block[h2]
+{
+    width: calc(50% - 10px);
+}
+
+.button {
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
