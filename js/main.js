@@ -12,7 +12,7 @@ window.onload = async function() {
                 totX += data.x;
                 totY += data.y;
                 num++;
-                if (clock - initClock > 3000) {
+                if (clock - initClock > 2000) {
                     console.log(totX / num, totY / num);
                     var elem = document.elementFromPoint(totX / num, totY / num)
                     if (elem != null) {
