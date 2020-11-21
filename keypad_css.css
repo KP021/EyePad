@@ -1,0 +1,95 @@
+container {
+    width: 442px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.block {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background: #47353552;
+    float: right;
+}
+body {
+    background: gray
+}
+
+.block
+{
+    width: calc(33% - 10px);
+    margin: 5px;
+}
+.block:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+
+.block[h2]
+{
+    width: calc(50% - 10px);
+}
+
+.button {
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.Calibration{
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background-color: red;
+    opacity: 0.2;
+    border-color: black;
+    border-style: solid;
+    position:fixed;
+}
+
+
+/* Calibration point position */
+#Pt1{
+    top: 70px;
+    left:340px;
+}
+#Pt2{
+    top: 70px;
+    left:50vw;
+    margin-left: 340;
+}
+#Pt3{
+    top: 70px;
+    right:2vw;
+}
+#Pt4{
+    top:50vh;
+    left:2vw;
+}
+#Pt5{
+    top: 50vh;
+    left: 50vw;
+}
+#Pt6{
+    top: 50vh;
+    right:2vw;
+}
+#Pt7{
+    bottom:2vw;
+    left: 2vw;
+}
+#Pt8{
+    bottom:2vw;
+    left:50vw;
+}
+#Pt9{
+    bottom:2vw;
+    right:2vw;
+}
