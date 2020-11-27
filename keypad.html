@@ -7,11 +7,18 @@
 </style>
 <body>
 <script>
-function cL(elm) {
-    var inp = document.getElementById("inputArea");
-    inp.value += elm;
-}
+var prevButton = null;
 var calibStatus = -1;
+
+function predButton(elm) {
+    var currButton  = elm
+    currButton.style.backgroundColor = "blue";
+	if (prevButton){
+		prevButton.style.backgroundColor = "#47353552";
+	}
+	prevButton = currButton;
+	
+}
 
 function cal() {
     var button = document.getElementById("calButton");
@@ -21,12 +28,14 @@ function cal() {
 
     if (calibStatus == 1) {
         button.textContent = "Calibrate";
+		webgazer.showPredictionPoints(false); /* shows a square every 100 milliseconds where current prediction is */
         numpad.style.visibility = "visible";
         input.style.visibility = "visible";
         calibrationDiv.style.visibility = "hidden";
 
     } else {
         Restart();
+		webgazer.showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
         button.textContent = "Stop Calibration";
         numpad.style.visibility = "hidden";
         input.style.visibility = "hidden";
@@ -38,15 +47,15 @@ function cal() {
 <script src="/js/main.js"></script>
 <script src="/js/WebGazer.js" type="text/javascript"></script>
 <div id ="numpad" >
-    <button onclick="cL(3)" class="block">3</button>
-    <button onclick="cL(2)" class="block">2</button>
-    <button onclick="cL(1)" class="block">1</button>
-    <button onclick="cL(6)" class="block">6</button>
-    <button onclick="cL(5)" class="block">5</button>
-    <button onclick="cL(4)" class="block">4</button>
-    <button onclick="cL(9)" class="block">9</button>
-    <button onclick="cL(8)" class="block">8</button>
-    <button onclick="cL(7)" class="block">7</button>
+    <button id="b3" onclick="predButton(this)" class="block">3</button>
+    <button id="b2" onclick="predButton(this)" class="block">2</button>
+    <button id="b1" onclick="predButton(this)" class="block">1</button>
+    <button id="b6" onclick="predButton(this)" class="block">6</button>
+    <button id="b5" onclick="predButton(this)" class="block">5</button>
+    <button id="b4" onclick="predButton(this)" class="block">4</button>
+    <button id="b9" onclick="predButton(this)" class="block">9</button>
+    <button id="b8" onclick="predButton(this)" class="block">8</button>
+    <button id="b7" onclick="predButton(this)" class="block">7</button>
 </div>
 
  <div id="calibrationDiv" style="visibility: hidden">

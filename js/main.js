@@ -16,19 +16,20 @@ window.onload = async function() {
                     console.log(totX / num, totY / num);
                     var elem = document.elementFromPoint(totX / num, totY / num)
                     if (elem != null) {
-                        elem.click();
-                        totX = 0;
-                        totY = 0;
-                        initClock = clock;
-                        num = 0;
-                        console.log("Sent click");
+						if (elem.id != calButton.id){
+							elem.click();
+							console.log("Sent click to ", elem.id);
+						}
                     }
-
+					totX = 0;
+					totY = 0;
+					initClock = clock;
+					num = 0;
                 }
 
             }
         }).begin();
-    webgazer.showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
+
 
 
     //Set up the webgazer video feedback.
