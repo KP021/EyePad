@@ -3,49 +3,60 @@
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="./keypad.css" />
 </head>
-<style>
-</style>
 <body>
 <script>
 var prevButton = null;
 var calibStatus = -1;
 
+// Onclick function for buttons
+//	Changes current prediction button to blue and reverts color 
+//		for previous color change
+//	Adds button text to input area
 function predButton(elm) {
-    var currButton  = elm
-    currButton.style.backgroundColor = "blue";
 	if (prevButton){
 		prevButton.style.backgroundColor = "#47353552";
 	}
-	prevButton = currButton;
+	var currButton  = elm;
+	currButton.style.backgroundColor = "blue";
 	
+	prevButton = currButton;
+	inputArea.value += elm.innerHTML;
 }
 
-function cal() {
-    var button = document.getElementById("calButton");
-    var numpad = document.getElementById("numpad");
-    var input = document.getElementById("inputArea");
-    var calibrationDiv = document.getElementById("calibrationDiv");
+// Toggles calibration state. 
+// 	calibStatus = 1
+//  	Restart Webgazer	
+//		Hide all elements input elements and show calibration points
+//		Shows Webgazer prediction points
+//	calibStatus = -1
+//		Hides calibration and shows input elements
+//		Hides Webgazer prediction points
 
-    if (calibStatus == 1) {
-        button.textContent = "Calibrate";
-		webgazer.showPredictionPoints(false); /* shows a square every 100 milliseconds where current prediction is */
+function cal() {
+	calibStatus *= -1;
+	
+    if (calibStatus == -1) {
+        calButton.textContent = "Calibrate";
+		webgazer.showPredictionPoints(false); 
         numpad.style.visibility = "visible";
-        input.style.visibility = "visible";
-        calibrationDiv.style.visibility = "hidden";
+        inputArea.style.visibility = "visible";
+		inputArea.value = '';
+        clearButton.style.visibility = "visible";
+		calibrationDiv.style.visibility = "hidden";
+		
 
     } else {
         Restart();
-		webgazer.showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
-        button.textContent = "Stop Calibration";
+		webgazer.showPredictionPoints(true); 
+        calButton.textContent = "Stop Calibration";
         numpad.style.visibility = "hidden";
-        input.style.visibility = "hidden";
+        inputArea.style.visibility = "hidden";
+        clearButton.style.visibility = "hidden";
         calibrationDiv.style.visibility = "visible";
     }
-    calibStatus *= -1;
+    
 }
 </script>
-<script src="./js/main.js"></script>
-<script src="./js/WebGazer.js" type="text/javascript"></script>
 <div id ="numpad" >
     <button id="b3" onclick="predButton(this)" class="block">3</button>
     <button id="b2" onclick="predButton(this)" class="block">2</button>
@@ -58,7 +69,7 @@ function cal() {
     <button id="b7" onclick="predButton(this)" class="block">7</button>
 </div>
 
- <div id="calibrationDiv" style="visibility: hidden">
+<div id="calibrationDiv" style="visibility: hidden">
     <input type="button" class="Calibration" id="Pt1"></input>
     <input type="button" class="Calibration" id="Pt2"></input>
     <input type="button" class="Calibration" id="Pt3"></input>
@@ -68,12 +79,15 @@ function cal() {
     <input type="button" class="Calibration" id="Pt7"></input>
     <input type="button" class="Calibration" id="Pt8"></input>
     <input type="button" class="Calibration" id="Pt9"></input>
-    <input type="button" class="Calibration" id="Pt10"></input>
+	<input type="button" class="Calibration" id="Pt10"></input>
     <input type="button" class="Calibration" id="Pt11"></input>
     <input type="button" class="Calibration" id="Pt12"></input>
 </div>
 
 <input type="text" id="inputArea">
 <button type="button" id="calButton" onclick="cal()">Calibrate</button>
+<button type="button" id="clearButton" onclick="inputArea.value=''">Clear</button>
+<script src="./js/main.js"></script>
+<script src="./js/WebGazer.js" type="text/javascript"></script>
 </body>
 </html>
