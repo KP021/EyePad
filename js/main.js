@@ -14,12 +14,10 @@ window.onload = async function() {
                 num++;
                 if (clock - initClock > 2000) {
                     console.log(totX / num, totY / num);
-                    var elem = document.elementFromPoint(totX / num, totY / num)
-                    if (elem != null) {
-						if (elem.id != calButton.id){
-							elem.click();
-							console.log("Sent click to ", elem.id);
-						}
+                    var elem = document.elementFromPoint(totX / num, totY / num);
+                    if (numpad.contains(elem)) {
+						elem.click();
+						console.log("Sent click to ", elem.id);
                     }
 					totX = 0;
 					totY = 0;
