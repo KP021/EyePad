@@ -9,12 +9,20 @@ window.onload = async function() {
         //.setTracker('clmtrackr')
         .setGazeListener(function(data, clock) {
             if (data != null && calibStatus == -1) {
-                totX += data.x;
-                totY += data.y;
-                num++;
-                if (clock - initClock > 2000) {
-                    console.log(totX / num, totY / num);
-                    var elem = document.elementFromPoint(totX / num, totY / num);
+				webgazer.util.bound(data);
+				if ((data.x - totX/num) < 200 && (data.y - totY/num) < 200){
+					totX += data.x;
+					totY += data.y;
+					num++;
+				}
+				else{
+					totX = data.x;
+					totY = data.y;
+					num = 1;
+				}
+                if (num > 10) {
+                    console.log(data.x,data.y);
+                    var elem = document.elementFromPoint(data.x,data.y);
                     if (numpad.contains(elem)) {
 						elem.click();
 						console.log("Sent click to ", elem.id);
@@ -24,7 +32,6 @@ window.onload = async function() {
 					initClock = clock;
 					num = 0;
                 }
-
             }
         }).begin();
 
