@@ -21,8 +21,8 @@ window.onload = async function() {
 					num = 1;
 				}
                 if (num > 10) {
-                    console.log(data.x,data.y);
-                    var elem = document.elementFromPoint(data.x,data.y);
+                    console.log(totX/num,totY/num);
+                    var elem = document.elementFromPoint(totX/num,totY/num);
                     if (numpad.contains(elem)) {
 						elem.click();
 						console.log("Sent click to ", elem.id);
