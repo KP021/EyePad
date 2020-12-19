@@ -57,20 +57,20 @@ body {
 
 /* Calibration point position */
 #Pt1{
-    top: 10px;
-    left:2vw;
+    top: 25px;
+    left:20vw;
 }
 #Pt2{
-    top: 10px;
+    top: 25px;
     left:50vw;   
 }
 #Pt3{
-    top: 10px;
-    right:2vw;
+    top: 25px;
+    right:20vw;
 }
 #Pt4{
     top:25vh;
-    left:2vw;
+    left:20vw;
 }
 #Pt5{
     top: 25vh;
@@ -78,11 +78,11 @@ body {
 }
 #Pt6{
     top: 25vh;
-    right:2vw;
+    right:20vw;
 }
 #Pt7{
     bottom:50vh;
-    left: 2vw;
+    left: 20vw;
 }
 #Pt8{
     bottom:50vh;
@@ -90,7 +90,7 @@ body {
 }
 #Pt9{
     bottom:50vh;
-    right:2vw;
+    right:20vw;
 }
 #Pt10{
     bottom:2vw;
@@ -102,5 +102,5 @@ body {
 }
 #Pt12{
     bottom:2vw;
-    right:2vw;
+    right:20vw;
 }
