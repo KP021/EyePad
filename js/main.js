@@ -1,28 +1,36 @@
+//code from @henrikra from https://gist.github.com/caseyjustus/1166258#file-median-js
+function median(numbers) {
+  const middle = (numbers.length + 1) / 2;
+  const sorted = [...numbers].sort((a, b) => a - b);
+  const isEven = sorted.length % 2 === 0;
+  return isEven ? (sorted[middle - 1.5] + sorted[middle - 0.5]) / 2 : sorted[middle - 1];
+}
 window.onload = async function() {
-    var totX = 0;
-    var totY = 0;
     var initClock = 0;
-    var num = 0;
+	var currentXVals = []; 
+	var currentYVals = []; 
+	var medX = 0;
+	var medY = 0;
     webgazer.params.showVideoPreview = true;
     //start the webgazer tracker
     await webgazer.setRegression('ridge') /* currently must set regression and tracker */
         //.setTracker('clmtrackr')
         .setGazeListener(function(data, clock) {
             if (data != null && calibStatus == -1) {
-                totX += data.x;
-                totY += data.y;
-                num++;
+                currentXVals.push(data.x);
+                currentYVals.push(data.y);
                 if (clock - initClock > 2000) {
-                    console.log(totX / num, totY / num);
-                    var elem = document.elementFromPoint(totX / num, totY / num);
+					medX = median(currentXVals);
+					medY = median(currentYVals);
+                    console.log(medX, medX);
+                    var elem = document.elementFromPoint(medX, medY);
                     if (numpad.contains(elem)) {
 						elem.click();
 						console.log("Sent click to ", elem.id);
-                    }
-					totX = 0;
-					totY = 0;
+                    }					
+					currentXVals = []; 
+					currentYVals = []; 
 					initClock = clock;
-					num = 0;
                 }
 
             }
