@@ -26,6 +26,11 @@ LinkedIn
 Notetaking/texting
 Samples for activity on each social media platform are approximately between 30-60 seconds long. Subjects were told to use the platforms as they normally would, and were instructed when to start and stop recordings. It is worth noting no data was collected while traveling.
 
+
+![Numpad](https://github.com/KP021/InputGazer/blob/main/images/numpad.png)
+![Calibration](https://github.com/KP021/InputGazer/blob/main/images/calibration.png)
+
+
 ## Model Structure
 Add Shivin & Irene slides
 
