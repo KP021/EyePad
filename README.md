@@ -1,6 +1,12 @@
 # InputGazer
 This library aims to use Eye Tracking to input Num keys on a webpage, demonstrating the feasability of eye-controlled web browsing
 
+Demo
+
+![Video Demo](https://github.com/KP021/InputGazer/blob/main/images/gif_video_demo.gif)
+
+
+
 Files:
 
 To correctly initialize and run the tools, the following files and folders are needed
@@ -11,6 +17,9 @@ To correctly initialize and run the tools, the following files and folders are n
 To run the tool, it will be necessary to initialize a local http server
 
 ![Console server](https://github.com/KP021/InputGazer/blob/main/images/console.png)
+
+Camera permissions will be needed to ensure tool function.
+The user will have to calibrate on the points provided before using the numpad. A calibration of 27-45 clicks, 3-5 per point, is suggested.
 
 # Write-Up
 
