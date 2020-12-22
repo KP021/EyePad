@@ -1,6 +1,9 @@
 # EyePad
 This library aims to use Eye Tracking to input Num keys on a webpage, demonstrating the feasability of eye-controlled web browsing
 
+## Problem Background 
+People with mobility impairment have been unable to benefit from computing and the internet, even though different solutions exist.  Most solutions try to solve a part of the problem space and often don't integrate well when combined. On the hardware front, assistive devices and game controllers developed by Microsoft and Logitech have been well received by the mobility impairment community. Further, the rejection rate of prosthetics among upper limb amputees remain as high as 81 percentage. The current landscape calls for a need for an integrated solution that works well across the board. With that goal in mind, we decided to develop EyePad, a gaze tracking based Numpad that serves as a proof of concept for future scalable architecture for people with mobility impairment. EyePad works on widely available PCs and laptops with webcam and leveraging web technologies unlocks massive future integration possibilities.
+
 Demo
 
 ![Video Demo](https://github.com/KP021/InputGazer/blob/main/images/gif_video_demo.gif)
