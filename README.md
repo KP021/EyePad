@@ -59,22 +59,33 @@ Variance (st. deviation, rootmean-square)
 Feature selection
 We selected features by comparing the different classes to each other using summary statistics and graphing data such as the accelerometer and gyroscope. The accelerometer and gyroscope data were the most consistent features. It was hard to empirically select at times because the data varies per participant and trial. Consequently, we also used a feature ranking algorithm to determine which features were more useful.
 
-## Classification
-We tried two approaches to classification: Decision trees (+ others) and Concurrent neural network.
+## Machine Learning Regression Analysis
 
-Decision Trees & others
-Because of finding success in activity recognition of A4 through decision trees, we started with a Random Forest classifier and managed to achieve about 80% with basic features. We did however, try a variety of other classifiers.
+### Ridge Regression
+Ridge regression is a widely used statistical technique for predictive modelling. The regression algorithm outputs an equation, where features are independent variables, on which a target variable is dependent upon. The following is a generalized version of a output ridge regression equation:
 
-Decision Tree (78%)
-KNN (60% accuracy)
-SVM (62% accuracy)
-MLP (64% accuracy, failed to converge)
-Logistic (20% accuracy)
-Bayesian (~20% accuracy)
-As it turns out, logistic and bayesian classifiers were no better than guessing, and trees performed the best for our activities. We then looked to another method to see if we could attain better results.
 
-Neural Networks
-We also tried a Convolutional Neural Network (CNN) to see if an algorithm could generate better features than ourselves and achieve over 80% accuracy. CNNs essentially have three parts: convolution layers, pooling layers, and fully-connected layers.
+In the generalized regression equation above, Y is the target variable and x’s are the independent variables. Thetas, the coefficient, represent an associated weight of each independent variable. The magnitude of theta is dependent upon the importance of the associated independent feature. In order to develop a regression model, ridge regression minimizes the following objective function:
+
+
+The objective function consists of two components. The first component is the squared deviation between target and predicted variables. The second component is a penalty function that consists of a  product between a constant penalty coefficient ( lambda) and the square of theta. Higher the magnitude of lambda, lower the outputted values of theta (coefficient).
+
+### Weighted Ridge Regression
+Weighted ridge regression is a variant of ridge regression. The only difference between both algorithms is the objective function they are minimizing. The Weighted ridge regression objective function is the following:
+
+
+The objective function of weighted ridge regression separates the training and predictive data set into two components. The first component only consists of training/predicted data acquired by the user during calibration of the webgazer application. The second component of the training/predicted dataset only consists of data used to pre-train the webgazer application. The squared deviation between predicted and target variable for each component of the data sets has an associative weight (Alpha and Beta). Alpha is always greater than Beta as weighted ridge regression puts greater importance on the dataset component,which was acquired by the user.     
+
+### Threaded Ridge Regression
+Threaded ridge regression from a statistical standpoint is exactly the same as Ridge regression. The only difference is that Threaded ridge regression can be run on multiple threads. Therefore threaded ridge regression is a faster implementation of standard ridge regression. The advantage of Threaded ridge regression is that it allows small gaze times (to implement commands) and therefore decreases the strain on the users eye and prolongs the user's ability to utilize the application. However it should be noted that Threaded ridge regression has a pretty high computational overhead.
+
+## Future Work
+We want to expand the number of web based applications we offer. Some of these applications include a calculator, keyboard and video player. For the development of more advanced applications, we would need to introduce commands (decreasing volume, fast forwarding a video) that can be achieved without clicking a button. The most apt way to introduce these commands is to develop a network that associates specific eye movements (ex. moving left to right) to a specific command. We theorize that the said networks architecture would look something like the following:
+
+
+The above picture shows a composite network architecture. This deep learning network consists of convolutional layers (CNN) and LSTM layers. The CNN layers identify the position of the eye pupil in reference to a predefined grid map from a live video stream originating from a computer’s web camera. The CNN layer passes the position of the eye pupil to an LSTM layer at every time period. The LSTM layer stores the position of previous and current eye positions. After a set time period, the LSTM layer collates all the positions of the pupil and interprets the aggregate eye motion. This aggregate eye motion represents a specific computer command. 
+
+Furthermore we identified that the accuracy of the webgazer application is very susceptible to light conditions and the quality of the video stream. Therefore we strive to further investigate how best to optimize the current webgazer network for environmental conditions which are more realistic.         
 
 ## Testing
 In response to your question in class about testing on different users, we individually collected 10 thirty-second samples for every class and trained two separate models and cross-tested. When testing on themselves, the same model above yielded > 95% accuracy in both cases. However, when applied to an entirely different user was only about 10% on average--which is worse than chance.
