@@ -64,6 +64,7 @@ We selected features by comparing the different classes to each other using summ
 ### Ridge Regression
 Ridge regression is a widely used statistical technique for predictive modelling. The regression algorithm outputs an equation, where features are independent variables, on which a target variable is dependent upon. The following is a generalized version of a output ridge regression equation:
 
+!(https://github.com/KP021/InputGazer/blob/main/images/Equation1.png)
 
 In the generalized regression equation above, Y is the target variable and x’s are the independent variables. Thetas, the coefficient, represent an associated weight of each independent variable. The magnitude of theta is dependent upon the importance of the associated independent feature. In order to develop a regression model, ridge regression minimizes the following objective function:
 
