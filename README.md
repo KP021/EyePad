@@ -105,4 +105,11 @@ Mean accuracy: 0.09002072845721054
 This test demonstrates that people use social media in much different ways due to a variety of technological and physiological factors. This may include how users hold their phones, hand dominance, posture, attention-span, use-cases, etc. It is better to train a model like this on the user himself, or perhaps even attempt to generalize with an enormous dataset from many users.
 
 ## Conclusion
-Detecting minute differences in sensor data to distinguish social media platforms has a lot of potential to add value to companies such as Microsoft or Apple, and an interesting task. Of course, all users are much different from one another, which was shown in our recent test. Recognizing different social media platform usage with an iPhone’s motion sensors (accelerometer, gyroscope, etc) can certainly be improved, or achieved successfully if trained on individual users. Because detecting usage of these platforms would be unnoticable to any human, we're fairly happy with the conclusion that it is conditionally possible to make accurate predictions, and would be interested to see if a more generalized model might work.
+Based on our experiments we found out that the combination of Tensorflow Facemesh for gaze detection, Threaded Ridge Regression for gaze prediction, and Average of predicted points over input selection time to provide the best performance. We also noted that calibration of gaze points with cursor improved the performance of our system considerably and sharing calibration data across sessions and users could improve the performance further. 
+In our observations, we also encountered a few limitations of our system that are consistent with the ones mentioned for Webgazer in theory:
+\begin{itemize}
+\item Works better for X co-ordinate than Y
+\item Constrained by low lighting, variation in head pose, and facial-worn objects such as glasses or masks
+\end{itemize}
+
+However, the current limitations of our PC based solution won't impede a Virtual Reality based solution. We urge the VR community to come together and develop a computing paradigm that includes the people with mobility impairment from the get go..
