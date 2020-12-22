@@ -107,9 +107,7 @@ This test demonstrates that people use social media in much different ways due t
 ## Conclusion
 Based on our experiments we found out that the combination of Tensorflow Facemesh for gaze detection, Threaded Ridge Regression for gaze prediction, and Average of predicted points over input selection time to provide the best performance. We also noted that calibration of gaze points with cursor improved the performance of our system considerably and sharing calibration data across sessions and users could improve the performance further. 
 In our observations, we also encountered a few limitations of our system that are consistent with the ones mentioned for Webgazer in theory:
-\begin{itemize}
-\item Works better for X co-ordinate than Y
-\item Constrained by low lighting, variation in head pose, and facial-worn objects such as glasses or masks
-\end{itemize}
+- Works better for X co-ordinate than Y
+- Constrained by low lighting, variation in head pose, and facial-worn objects such as glasses or masks
 
 However, the current limitations of our PC based solution won't impede a Virtual Reality based solution. We urge the VR community to come together and develop a computing paradigm that includes the people with mobility impairment from the get go..
